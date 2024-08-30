@@ -16,11 +16,14 @@
                     <img src="/assets/images/jeans2.svg" alt="denim royale logo" width="40px">
                     <span class="logo-text">Denim <br> Royale</span>
                 </span>
+                <div>
+                    <a href="#shop">Buy Now</a>
 
-                <span class="cart">
-                    <i class="fa-solid fa-cart-arrow-down icon"></i>
-                    <span class="counter" id="cart-counter">0</span>
-                </span>
+                    <span class="cart">
+                        <i class="fa-solid fa-cart-arrow-down icon"></i>
+                        <span class="counter" id="cart-counter">0</span>
+                    </span>
+                </div>
             </nav>
             <section class="header-wrapper">
                 <div id="header" class="hero">
@@ -32,29 +35,14 @@
                     </div>
                 </div>
                 <aside id="cart-wrapper">
+                    <div id="cart-wrapper-item">
+                        <!-- cart items goes here -->
 
-
-                    <div id="cart-item">
-                        <div class="cart-item-thumbnail">
-                            <img src="/assets/products/image-1.png" alt="product name">
-                        </div>
-
-                        <span class="cart-item-name">
-                            Jacket by Rogue
-                        </span>
-
-                        <div class="cart-item-count">
-                            <button id="increment" class="plain-btn"> &plus; </button>
-                            <span>0</span>
-                            <button id="decrement" class="plain-btn"> &minus; </button>
-                        </div>
-
-                        <span class="cart-item-price">
-                            $2000
-                        </span>
-                        <button id="remove-item"> + </button>
                     </div>
-
+                    <div class="cart-footer">
+                        <p class="cart-footer-text">Subtotal: (0 items) : $0 </p>
+                        <button id="checkout">Proceed to checkout</button>
+                    </div>
                 </aside>
             </section>
         </header>
@@ -62,15 +50,12 @@
             <h2>CLASSIC DENIMS</h2>
 
             <section id="shop">
-            <!-- STARTS -->
-
-                <!-- ENDS -->
+                <!-- products goes here-->
             </section>
         
         
         </main>
     </div>
-    <script type="module" src="data.js" ></script>
-    <script src="main.js"></script> 
+    <script type="module" src="main.js"></script> 
 </body>
 </html>
