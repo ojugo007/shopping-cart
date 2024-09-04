@@ -1,8 +1,9 @@
 let cartWrap = document.querySelector("#cart-wrapper-item");
+let cartItemList = document.querySelector("#cart-wrapper");
+let showCart = document.querySelector(".cart");
 import products from "./data.js";
 let cartCount = document.querySelector("#cart-counter");
 let totalWrap = document.querySelector(".cart-footer-text");
-
 
 function slide(){
     let headerSlide = document.querySelector("#header>img");
@@ -23,6 +24,9 @@ setInterval(()=>{
     slide()
 }, 10000);
 
+showCart.addEventListener("click", ()=>{
+    cartItemList.classList.toggle("show")
+})
 
 // TO DISPLAY THE PTODUCTS ON THE UI
 function getProducts(){
@@ -94,7 +98,9 @@ function updateCart(){
 
 function renderCartItems(){
     cartWrap.innerHTML = ""
-
+    if(cart.length == 0){
+        cartWrap.innerHTML = "<p class='cart-message'>Your cart is empty! Start shopping </p>"
+    }
     cart.forEach((item)=>{
         cartWrap.innerHTML += `<div id="cart-item">
                             <div class="cart-item-thumbnail">
@@ -135,6 +141,7 @@ function renderCartItems(){
             })
         
         })
+        
         // event listener to remove an item from cart
         removeItem.forEach((btn)=>{
             btn.addEventListener("click", (event)=>{
