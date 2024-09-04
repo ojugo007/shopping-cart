@@ -58,7 +58,8 @@ function getProducts(){
 
 getProducts()
 
-let cart = []
+let cart = JSON.parse(localStorage.getItem("CART")) || [];
+updateCart()
 
 function addToCart(id){
     let numberOfUnits = 1;
@@ -86,6 +87,8 @@ function updateCart(){
     renderCartItems()
     renderSubTotal()
 
+    // save cart to localStorage
+    localStorage.setItem("CART", JSON.stringify(cart));
 
 }
 
