@@ -31,7 +31,7 @@ body, html{
 /* header */
 header{
     max-width: 100%;
-    min-height: 95vh;
+    min-height: 90vh;
     & nav{
         max-width: 100%;
         height: 60px;
@@ -150,7 +150,6 @@ header{
 
     /* header cart area */
     aside{
-        /* flex-basis: 30%; */
         width: 30%;
         padding: 35px;
         background: #000;
@@ -284,16 +283,17 @@ header{
     }
     #shop{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
-        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
         max-width: 1200px;
         margin: 0 auto;
+        
         .product-item{
-            max-width: 300px;
             padding: 15px 15px 30px;
             background-color: #fff;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
             border-radius: 5px;
+
             .product-item-image{
                 max-width: 100%;
                 height: 230px;
@@ -362,7 +362,7 @@ header{
         & .hero{
             .hero-text{
                 max-width: 68%;
-                top: 150px;
+                top: 230px;
 
                 & h1{
                     font-size: 70px;
@@ -371,12 +371,15 @@ header{
             }
         }
     
+        aside{
+            width: 50%;
+        }
     }
 }
 
 @media only screen and (max-width: 957px){
     header{
-        height: 80vh;
+        height: 70vh;
         & .hero{
             & img{
                 object-fit: cover;
@@ -395,22 +398,117 @@ header{
 
     
 }
-@media only screen and (max-width: 587px){
+@media only screen and (max-width: 680px){   
     header{
         & .hero{
             .hero-text{
-                max-width: 90%;
+                max-width: 70%;
                 top: 300px;
-                left: 15px;
 
                 & h1{
-                    font-size: 55px;
+                    font-size: 50px;
                 }
 
             }
         }
     
+        aside{
+            width: 70%;
+        }
+    }
+}
+
+@media only screen and (max-width: 587px){
+    header{
+        height: auto;
+        min-height: 0;
+        & nav{
+            padding: 8px 15px;
+            & .logo{
+                & .logo-text{
+                    font-size: 14px;
+                    padding-left: 3px;
+                }
+          
+            }
+            div{
+                gap:30px;
+                a{
+                    font-size: 14px;
+                }
+            }
+            
+        }
+         
+        & .hero{
+        img{
+            object-fit: contain;
+        }
+            .hero-text{
+                max-width: 60%;
+                top: 50px;
+                left: 15px;
+
+                & h1{
+                    font-size: 35px;
+                }
+                .btn{
+                    padding: 8px 20px;
+                    font-size: 14px;
+
+                }
+
+            }
+        }
+        aside{
+            width: 80%;
+            padding: 25px;
+        }
+    
+    }
+    .shop-container{
+        padding: 35px 15px;
+        & h2{
+            font-size: 20px;
+        }
     }
 
     
+}
+@media only screen and (max-width: 450px){
+    header{
+        height: 65vh;
+        overflow: hidden;
+         
+        & .hero{
+            img{
+            object-fit: cover;
+            }
+        }
+           
+    
+    }
+
+}
+
+@media only screen and (max-width: 387px){
+    header{
+        .hero{       
+            .hero-text{
+                max-width: 100%;
+            }
+        }
+        aside{
+            width: 100%;
+            padding: 25px;
+        }
+    }
+    .shop-container{
+        padding: 20px 15px;
+
+        #shop{
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            width: 100%;
+        }
+    }
 }

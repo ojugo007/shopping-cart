@@ -173,7 +173,6 @@ function changeNumberOfUnit(action, id){
     
     updateCart()
 }
-
 // since i used the strictly not equal it is advisable to covert the prodId from data-product-id to number first or use the loose equality
 function removeFromCart(id){
     cart = cart.filter((item)=> item.product_id !== id)
@@ -192,3 +191,4 @@ function renderSubTotal(){
     cartCount.innerHTML = total;
     totalWrap.innerHTML = `Subtotal: (${total} items) : $${subtotal.toFixed(2)} `
 }
+
