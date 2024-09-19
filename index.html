@@ -28,7 +28,7 @@
             <section class="header-wrapper">
                 <div id="header" class="hero">
                     <!-- slide goes here -->
-                    <img src="/assets/images/slide-1.png" alt="">
+                    <!-- <img src="/assets/images/slide-1.png" alt=""> -->
                     <div class="hero-text">
                         <h1>Authentic Denim Crafted for the Modern You</h1>
                         <a href="#shop" class="btn">Hot deals</a>
@@ -53,8 +53,33 @@
                 <!-- products goes here-->
             </section>
         
-        
+    
         </main>
+        <section class="contact">
+            <h3>Reach out to us!</h3>
+            <p>We'd love to hear from you. Fill out the form below to reach us!</p>
+            <div role="region" aria-labelledby="contact form">
+                <div class="contact-media">
+                    <img src="./assets/images/slide-1.png" alt="">
+                    <div class="overlay"></div>
+                </div>
+                <form action="">
+                    <div class="row">
+                        <input type="text" placeholder="Enter first name" aria-label="First Name" required>
+
+                        <input type="text" placeholder="Enter last name" aria-label="Last Name" required>
+                    </div>
+
+                    <input type="email" placeholder="Enter email" aria-label="Email" required autocomplete="true">
+
+                    <input type="text" placeholder="Subject" aria-label="Message subject" class="subject" required>
+
+                    <textarea placeholder="Enter message" aria-label="Message" required></textarea>
+
+                    <button type="submit">Send <i class="fa-regular fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </section>
     </div>
     <script type="module" src="main.js"></script> 
 </body>
