@@ -3,36 +3,47 @@ let cartItemList = document.querySelector("#cart-wrapper");
 let showCart = document.querySelector(".cart");
 import products from "./data.js";
 let cartCount = document.querySelector("#cart-counter");
+let cartCheckout = document.querySelector(".cart-footer");
 let totalWrap = document.querySelector(".cart-footer-text");
 
+
+// to display random images on the header
 function slide(){
-    let headerSlide = document.querySelector("#header>img");
+    // let headerSlide = document.querySelector("#header>img");
+    let headerSlide = document.querySelector("header");
+    console.log(headerSlide)
     let imageUrlArray = [
         "/assets/images/slide-1.png",
         "/assets/images/slide-2.png",
         "/assets/images/slide-3.png",
         "/assets/images/slide-4.png",
         "/assets/images/slide-5.png",
+    
     ]
     let random = Math.floor(Math.random()*imageUrlArray.length) + 1
  
-    headerSlide.setAttribute("src", `/assets/images/slide-${random}.png`)
+    // headerSlide.setAttribute("src", `/assets/images/slide-${random}.png`)
+    headerSlide.style.backgroundImage = `url(/assets/images/slide-${random}.png)`
 
 }
 
 setInterval(()=>{
     slide()
 }, 10000);
+// ends
 
+
+// TO TOGGLE CART
 showCart.addEventListener("click", ()=>{
     cartItemList.classList.toggle("show")
 })
+// ends
 
 // TO DISPLAY THE PTODUCTS ON THE UI
 function getProducts(){
     let productItem = document.querySelector("#shop");
     products.forEach((product)=>{
-            productItem.innerHTML += `<div class="product-item" data-product-id= ${product.product_id}>
+            productItem.innerHTML += `<div class="product-item" data-product-id= ${product.product_id} tabindex = 0 >
                                         <div class="product-item-image">
                                             <img src=${product.product_image} alt=${product.product_name}>
                                         </div>
@@ -41,19 +52,18 @@ function getProducts(){
                                         <span>${product.product_stock} in stock</span>
                                         <span>$${product.product_price} </span>
                                         <div class="product-item-btn">
-                                            <button class="cart-btn" data-product-id= ${product.product_id} > Add To Cart </button>    
+                                            <button class="cart-btn"> Add To Cart </button>    
                                         </div>
                                     </div>`
     
     })
     // ADDS EVENT HANDLER TO THE ADD TO CART BUTTON OF EACH PRODUCT 
-    // usingthe getAttribute to get the custom attribute set to the button, the value of this data-product-id was set to the product-id from the data array
+    // usingthe getAttribute to get the custom attribute set to the parent item, the value of this data-product-id was set to the product-id from the data array and by traversing the dom i can grab the data-product-id from the parentElement
     let cartBtn = document.querySelectorAll('.cart-btn');
     cartBtn.forEach((btn)=>{
         btn.addEventListener('click', (event)=>{
-            let productId = event.target.getAttribute("data-product-id")
+            let productId = event.target.parentElement.parentElement.getAttribute("data-product-id")
             addToCart(productId)
-            console.log(productId)
         })
     
     })
@@ -61,6 +71,7 @@ function getProducts(){
 }
 
 getProducts()
+// ends
 
 let cart = JSON.parse(localStorage.getItem("CART")) || [];
 updateCart()
@@ -82,7 +93,6 @@ function addToCart(id){
             ...list,
             numberOfUnits,
         });
-        console.log(cart)
     }
     updateCart()
 }
@@ -100,6 +110,7 @@ function renderCartItems(){
     cartWrap.innerHTML = ""
     if(cart.length == 0){
         cartWrap.innerHTML = "<p class='cart-message'>Your cart is empty! Start shopping </p>"
+        cartCheckout.classList.add("hide")
     }
     cart.forEach((item)=>{
         cartWrap.innerHTML += `<div id="cart-item">
@@ -151,6 +162,8 @@ function renderCartItems(){
             })
         
         })
+        
+        cartCheckout.classList.remove("hide")
     })
 }
 
@@ -191,4 +204,6 @@ function renderSubTotal(){
     cartCount.innerHTML = total;
     totalWrap.innerHTML = `Subtotal: (${total} items) : $${subtotal.toFixed(2)} `
 }
+
+
 
