@@ -1,10 +1,9 @@
 let cartWrap = document.querySelector("#cart-wrapper-item");
-let cartItemList = document.querySelector("#cart-wrapper");
-let showCart = document.querySelector(".cart");
 import products from "./data.js";
 let cartCount = document.querySelector("#cart-counter");
 let cartCheckout = document.querySelector(".cart-footer");
 let totalWrap = document.querySelector(".cart-footer-text");
+let yearWrap = document.querySelector(".year")
 
 
 // to display random images on the header
@@ -32,12 +31,6 @@ setInterval(()=>{
 }, 10000);
 // ends
 
-
-// TO TOGGLE CART
-showCart.addEventListener("click", ()=>{
-    cartItemList.classList.toggle("show")
-})
-// ends
 
 // TO DISPLAY THE PTODUCTS ON THE UI
 function getProducts(){
@@ -205,5 +198,8 @@ function renderSubTotal(){
     totalWrap.innerHTML = `Subtotal: (${total} items) : $${subtotal.toFixed(2)} `
 }
 
+// to get current year
+let currentYear = new Date().getFullYear()
+yearWrap.textContent = currentYear;
 
-
+console.log(currentYear)

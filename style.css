@@ -469,10 +469,58 @@ header{
         }
     }
 
-
-
+}
+footer{
+    background-color: #000;
+    padding: 50px;
+    color: #fff;
+}
+footer .logo{
+    display: flex;
+    align-items: center;
+    cursor: pointer; 
+}
+footer .logo-text{
+    font-size: 16px;
+    font-weight: 600;
+    font-family: var(--secondary-font);
+    text-transform: uppercase;
+    border-left: 1px solid;
+    padding-left: 5px;
+}
+footer div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 600px;
+    margin-bottom: 50px;
+}    
+footer div ul{
+    list-style: none;
+}   
+footer div ul li a, footer .bottom a{
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+}
+footer div ul li i{
+    color: #fff;
+    font-size: 20px;
+}
+footer div ul li:nth-child(2){
+    position: fixed;
+    right: 30px;
+    bottom: 300px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #6d60d290;
+    display: grid;
+    place-content: center;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.2);
 
 }
+ 
 
 @media only screen and (max-width: 1280px){   
     header{
@@ -606,8 +654,32 @@ header{
             font-size: 20px;
         }
     }
+    .contact{
+        padding: 65px 15px;
 
-    
+    }
+
+    .contact form .row{
+        flex-direction: column;
+
+    }
+    .contact{
+        [role="region"]{
+            form{  
+                padding: 45px 15px;          
+                .row{
+                    padding: 0 15px;
+                    input{
+                        width: 100% ;
+                    }
+                }
+            }
+        } 
+    } 
+    footer{
+        padding: 50px 15px;
+    }
+
 }
 @media only screen and (max-width: 506px){
     header{
@@ -622,6 +694,10 @@ header{
             }
         }
     }
+    footer div{
+        flex-direction: column;
+        gap: 30px;
+    }  
 
 }
 
@@ -635,10 +711,10 @@ header{
         aside{
             max-width: 100%;
             padding: 15px;
-                    .cart-message{
-            color: whitesmoke;
-            text-align: center;
-        }
+            .cart-message{
+                color: whitesmoke;
+                text-align: center;
+            }
 
         & #cart-item{
             position: relative;
