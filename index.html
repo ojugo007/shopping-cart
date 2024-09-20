@@ -12,14 +12,14 @@
 
         <header>
             <nav>
-                <span class="logo">
+                <span class="logo" id="top">
                     <img src="/assets/images/jeans2.svg" alt="denim royale logo" width="40px">
                     <span class="logo-text">Denim <br> Royale</span>
                 </span>
                 <div>
                     <a href="#shop">Buy Now</a>
 
-                    <span class="cart">
+                    <span class="cart" onclick="toggleCart()">
                         <i class="fa-solid fa-cart-arrow-down icon"></i>
                         <span class="counter" id="cart-counter">0</span>
                     </span>
@@ -80,7 +80,32 @@
                 </form>
             </div>
         </section>
+        <footer>
+            <div>
+                <span class="logo">
+                    <img src="/assets/images/jeans2.svg" alt="denim royale logo" width="40px">
+                    <span class="logo-text">Denim <br> Royale</span>
+                </span>
+            
+                <ul>
+                    <li><a href="#shop">SHOP</a></li>
+                    <li><a href="#top" onclick="toggleCart()"><i class="fa-solid fa-cart-arrow-down icon"></i></a></li>
+                </ul>
+            </div>
+            <div class="bottom">
+                <small>&copy;Copyright ojay <span class="year"></span>. All rights reserved</small>
+                <a href="mailto:silasojugo@gmail.com">Contact us</a>
+            </div>
+        </footer>
     </div>
+    <script>
+        let cartItemList = document.getElementById("cart-wrapper");
+
+        function toggleCart(){
+            cartItemList.classList.toggle("show");
+        }
+        toggleCart()
+    </script>
     <script type="module" src="main.js"></script> 
 </body>
 </html>
